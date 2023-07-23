@@ -126,13 +126,14 @@ public class ATM {
 		
 		while(!logout) {
 			System.out.println(""+Shared.acc+" account");
-            System.out.println("Please enter an option in a capital letter: ");
+            System.out.println("Please enter an option: ");
             System.out.println("U - UserInfo");
             System.out.println("D - Deposit");
             System.out.println("W - Withdraw");
             System.out.println("A - Accounts");
             System.out.println("C - Check Balance");
             System.out.println("T - Transfers");
+            System.out.println("R - Reset Pin");
             System.out.println("L - Logout");
             option = input.nextLine().charAt(0);
 
@@ -171,13 +172,53 @@ public class ATM {
                     
                     break;
                
-            default:
+        default:
                     System.out.println("Invalid option. Please try again.");
                     continue;
                    
-                    	
-		
-		
+                    
+        case 'u':
+            	UserInfo.info(match1 , customers, input);
+                continue;
+            
+        case 'd':
+                Deposit.deposit(match1, customers);
+                continue;
+            
+        case 'w':
+                Withdraw.withdraw(match1,customers);
+                continue;
+            
+        case 'c':
+                Balance.balance( match1, customers);
+                continue;
+           
+            
+        case 'a':
+        	Accounts.accounts(match1, customers,input);
+        	continue;
+                
+        case 't':
+        	Transfer.transfer(match1, customers);
+        	continue;
+        	
+        
+        case 'l':
+                System.out.println("Logging out...");
+                
+                logout = true;
+                
+                break;
+           
+        case 'R':
+        	
+        	Reset.reset(match1, customers);
+        	continue;
+                       
+        case 'r':
+        	
+        	Reset.reset(match1, customers);
+        	continue;
 		
 		
         }
